@@ -1,15 +1,19 @@
 <template>
 	<div id="app">
-		<nav>
-			<span>历史心情指数</span>
+		<nav class="nav">
+			<img src="./assets/arrow-left.png" class="back" />
+			<span class="title">历史心情指数</span>
 		</nav>
-		<div class="user">
-			<span class="text">Sakura</span>
-		</div>
-		<div class="data">
-			<div class="nums">88</div>
-			<div>周平均心情指数</div>
-		</div>
+		<section class="card">
+			<div class="user">
+				<img src="./assets/logo.png" class="user_icon" />
+				<span class="text">Sakura</span>
+			</div>
+			<div class="data">
+				<div class="nums">88</div>
+				<div>周平均心情指数</div>
+			</div>
+		</section>
 		<BarGraph :gfData="gfData" />
 	</div>
 </template>
@@ -46,12 +50,45 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 }
+.card {
+	margin-top: 15px;
+	padding: 50px 0 2px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
+
+	box-shadow: 0px -6px 16px -6px rgba(0, 0, 0, 0.2);
+}
 .user {
-	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	.user_icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 1px solid #eee;
+		margin-right: 10px;
+	}
 }
 .text {
 	font-weight: 500;
 	font-size: 20px;
+}
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.back {
+		width: 21px;
+		height: 16px;
+	}
+	.title {
+		flex: 1;
+		font-size: 20px;
+		font-weight: 600;
+		margin-right: 21px;
+	}
 }
 .data {
 	margin: 10px 0;
